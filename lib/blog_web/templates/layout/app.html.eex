@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>qv.vg</title>
+    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
+  </head>
+  <body>
+    <main class="main">
+      <header class="header">
+        <h1><%= link "👋 qv.vg", to: Routes.post_path(@conn, :index) %></h1>
+      </header>
+      <section class="content">
+        <p role="alert" class="alert alert-info"><%= get_flash(@conn, :info) %></p>
+        <p role="alert" class="alert alert-error"><%= get_flash(@conn, :error) %></p>
+        <%= render @view_module, @view_template, assigns %>
+      </section>
+      <footer class="footer">
+      </footer>
+    </main>
+    <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
+  </body>
+</html>

@@ -1,0 +1,6 @@
+<h1>If I approach infinity then...</h1>
+<%= for post <- @posts do %>
+    <p class="post" data-date="<%= post.inserted_at |> DateTime.to_date() |> Date.to_string() %>">
+      <%= link post.title, to: Routes.post_path(@conn, :show, post)%>
+    </p>
+<% end %>

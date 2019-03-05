@@ -1,0 +1,286 @@
+/* This file is for your main application css. */
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+
+/* 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 */
+
+html,
+body {
+  font-style: normal;
+  font-weight: 300;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue",
+    sans-serif;
+  width: 100%;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #282a36;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 144px 144px 610px 89px auto;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "header . content . ."
+    "footer footer footer footer footer";
+}
+
+.header {
+  grid-area: header;
+}
+
+.content {
+  grid-area: content;
+  min-height: 100vh;
+}
+
+.footer {
+  grid-area: footer;
+  margin-top: 21px;
+  background: #282a36;
+  color: #f8f8f2;
+}
+
+.header h1 {
+  display: flex;
+}
+
+.header h1 a {
+  font-size: 13px;
+  padding: 5px 13px;
+  background: #282a36;
+  color: white;
+  border-bottom-right-radius: 3px;
+}
+
+.header h1 a:hover,
+.header h1 a:focus {
+  color: #ff79c6;
+}
+
+.content a,
+.content a:hover,
+.content a:active,
+.content a:focus {
+  color: #ff79c6;
+}
+
+.content a:hover,
+.content a:active,
+.content a:focus {
+  text-decoration: underline;
+}
+
+.content > * {
+  font-size: 13px;
+  margin-top: 16px;
+  position: relative;
+}
+
+.content > *::after {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 100%;
+  margin-right: 8px;
+  opacity: 0.15;
+  font-weight: bold;
+  text-align: right;
+}
+
+.content > h1 {
+  font-size: 21px;
+}
+
+.content > h1::after {
+  content: "#";
+}
+
+.content > h2 {
+  font-weight: 600;
+}
+
+.content > h2::after {
+  content: "##";
+}
+
+.content > h3::after {
+  content: "###";
+}
+
+.content > p::after {
+  content: "¶";
+}
+
+.content > pre {
+  margin-left: -144px;
+  margin-right: -89px;
+}
+
+pre > code {
+  border-radius: 3px;
+}
+
+p code,
+table code,
+li code {
+  background: rgba(40, 42, 45, 0.05);
+  display: inline-block;
+  padding: 0 8px;
+  border-radius: 3px;
+  font-weight: 100;
+}
+
+p > img {
+  display: block;
+  border-radius: 3px;
+  max-width: 100%;
+}
+
+.content > blockquote {
+  color: rgba(40, 42, 45, 0.7);
+  font-style: italic;
+}
+
+.content > blockquote::after {
+  content: "";
+  width: 3px;
+  background: #282a36;
+  border-radius: 3px;
+}
+
+.content ol,
+.content ul {
+  margin-left: 16px;
+}
+
+.content ul ul {
+  list-style-type: disc;
+}
+
+.content > table {
+  min-width: 100%;
+  border-collapse: collapse;
+  border: 1px solid rgba(40, 42, 45, 0.15);
+}
+
+thead {
+  border-bottom: 3px double rgba(40, 42, 45, 0.15);
+}
+
+tbody tr {
+  border-bottom: 1px dashed rgba(40, 42, 45, 0.15);
+}
+
+th + th,
+td + td {
+  border-left: 1px dashed rgba(40, 42, 45, 0.15);
+}
+
+th,
+td {
+  padding: 3px 8px;
+}
+
+.content form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0;
+}
+
+form .row {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+form .info {
+  margin-bottom: 8px;
+}
+
+form .row .info label {
+  font-weight: bold;
+}
+
+form .row .info .help-block {
+  color: #ff79c6;
+}
+
+form .row + .row {
+  margin-top: 16px;
+  /* padding-top: 16px; */
+  /* border-top: 1px dashed rgba(40, 42, 45, 0.15); */
+}
+
+form .row input,
+form .row textarea,
+form .row button {
+  border: 1px solid rgba(40, 42, 45, 0.15);
+  border-radius: 3px;
+  font-size: 13px;
+}
+
+form .row input {
+  line-height: 34px;
+  padding: 0 8px;
+}
+
+form .row textarea {
+  min-height: 377px;
+  padding: 8px;
+}
+
+form .row button {
+  line-height: 34px;
+  padding: 0 8px;
+}
+
+.alert {
+  margin-top: 16px;
+  padding: 13px;
+  background: rgba(40, 42, 45, 0.05);
+  border: 1px solid transparent;
+  border-radius: 3px;
+  font-weight: 600;
+}
+
+.content > .alert::after {
+  content: "!!!";
+}
+
+.alert:empty {
+  display: none;
+}
+
+.alert.alert-error {
+  border-color: #ff79c6;
+}
+
+.alert.alert-info {
+  border-color: #8be9fd;
+}
+
+.content .post::after {
+  content: attr(data-date);
+  width: 89px;
+}
+
+.content .post a {
+  color: rgba(40, 42, 45, 1);
+  font-weight: bold;
+}
+.content .post a:hover,
+.content .post a:focus,
+.content .post a:active {
+  color: #ff79c6;
+}
+
+@import "./phoenix.css";
+@import "markdown.css";
