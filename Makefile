@@ -8,6 +8,7 @@ postgres-elixir:
 	  postgres
 
 build-assets:
+	npm install --prefix assets
 	npm run --prefix assets deploy
 	MIX_ENV=prod mix phx.digest
 
