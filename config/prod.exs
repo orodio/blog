@@ -14,7 +14,7 @@ config :blog, BlogWeb.Endpoint,
   https: [
     :inet6,
     port: 443,
-    cipher_suite: :stron,
+    cipher_suite: :strong,
     certfile: "/etc/letsencrypt/live/blog.qv.vg/fullchain.pem",
     keyfile: "/etc/letsencrypt/live/blog.qv.vg/privkey.pem",
     compress: true
