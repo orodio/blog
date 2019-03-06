@@ -10,12 +10,23 @@ use Mix.Config
 # which you should run after static files are built and
 # before starting your production server.
 config :blog, BlogWeb.Endpoint,
-  http: [port: {:system, "PORT"}, compress: true],
-  url: [host: "localhost", port: {:system, "PORT"}],
+  http: [port: 80, compress: true],
+  https: [
+    :inet6,
+    port: 443,
+    cipher_suite: :stron,
+    certfile: "/etc/letsencrypt/live/blog.qv.vg/fullchain.pem",
+    keyfile: "/etc/letsencrypt/live/blog.qv.vg/privkey.pem",
+    compress: true
+  ],
+  url: [host: "blog.qv.vg", port: 443],
   cache_static_manifest: "priv/static/cache_manifest.json",
+  force_ssl: [hsts: true],
   server: true,
   root: ".",
   version: Application.spec(:blog, :vsn)
+
+config :phoenix, :serve_endpoints, true
 
 #   http: [:inet6, port: System.get_env("PORT") || 4000],
 #   url: [host: "example.com", port: 80],

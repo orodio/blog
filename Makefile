@@ -20,3 +20,6 @@ start: build-release
 
 stop:
 	_build/prod/rel/blog/bin/blog stop
+
+renew-ssl:
+	certbot renew
