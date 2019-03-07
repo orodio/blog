@@ -6,6 +6,5 @@ import "phoenix_html"
 // import socket from "./socket"
 
 import "highlight.js/styles/dracula.css"
-import("highlight.js").then(hljs => {
-  hljs.initHighlightingOnLoad()
-})
+import hljs from "highlight.js"
+hljs.initHighlightingOnLoad()

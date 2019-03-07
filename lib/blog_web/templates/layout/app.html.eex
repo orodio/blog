@@ -15,8 +15,8 @@
         <h1><%= link "👋 qv.vg", to: Routes.post_path(@conn, :index) %></h1>
       </header>
       <section class="content">
-        <p role="alert" class="alert alert-info"><%= get_flash(@conn, :info) %></p>
-        <p role="alert" class="alert alert-error"><%= get_flash(@conn, :error) %></p>
+        <%# <p role="alert" class="alert alert-info"><%= get_flash(@conn, :info) %1></p> %>
+        <%# <p role="alert" class="alert alert-error"><%= get_flash(@conn, :error) %1></p> %>
         <%= render @view_module, @view_template, assigns %>
       </section>
       <footer class="footer">
