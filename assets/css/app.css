@@ -120,8 +120,11 @@ body {
 }
 
 .content > pre {
-  margin-left: -144px;
   margin-right: -89px;
+}
+
+.content > pre::after {
+  content: "</>";
 }
 
 pre > code {
@@ -281,6 +284,3 @@ form .row button {
 .content .post a:active {
   color: #ff79c6;
 }
-
-@import "./phoenix.css";
-@import "markdown.css";

@@ -8,7 +8,7 @@ defmodule BlogWeb.PostController do
 
   def index(conn, _params) do
     posts = Content.list_posts()
-    render(conn, "index.html", posts: posts)
+    render(conn, "index.html", posts: posts, page_title: "A blog about elixir and sailing")
   end
 
   def new(conn, _params) do
@@ -30,7 +30,7 @@ defmodule BlogWeb.PostController do
 
   def show(conn, %{"id" => id}) do
     post = Content.get_post!(id)
-    render(conn, "show.html", post: post)
+    render(conn, "show.html", post: post, page_title: post.title)
   end
 
   def edit(conn, %{"id" => id}) do

@@ -6,4 +6,5 @@ import "phoenix_html"
 
 import hljs from "highlight.js"
 import "highlight.js/styles/dracula.css"
+
 hljs.initHighlightingOnLoad()
