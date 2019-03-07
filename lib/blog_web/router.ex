@@ -18,6 +18,7 @@ defmodule BlogWeb.Router do
 
     get "/", PostController, :index
     resources "/posts", PostController
+    resources "/categories", CategoryController
   end
 
   # Other scopes may use custom stacks.

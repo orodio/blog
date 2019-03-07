@@ -1,0 +1,7 @@
+<h1>Category: <%= @category.label %></h1>
+<blockquote>Posts: nnn</blockquote>
+<%= for _post <- 0..5 do %>
+  <p class="post", data-date="2019-07-21">
+    <%= link "post.title", to: "https://google.com" %>
+  </p>
+<% end %>

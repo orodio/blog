@@ -1,0 +1,6 @@
+<h1>Categories</h1>
+<%= for category <- @categories do %>
+  <p class="post" data-date="*">
+    <%= link category.label, to: Routes.category_path(@conn, :show, category)%>
+  </p>
+<% end %>
