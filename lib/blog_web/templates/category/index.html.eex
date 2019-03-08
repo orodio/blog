@@ -1,6 +1,11 @@
-<h1>Categories</h1>
 <%= for category <- @categories do %>
-  <p class="post" data-date="*">
-    <%= link category.label, to: Routes.category_path(@conn, :show, category)%>
-  </p>
+  <%= if length(category.posts) >= 1 do %>
+    <h1><%= link category.label, to: Routes.category_path(@conn, :show, category)%></h1>
+
+    <%= for post <- category.posts do %>
+      <p class="post" data-date="<%= display_date(post.inserted_at) %>">
+        <%= link post.title, to: Routes.post_path(@conn, :show, post)%>
+      </p>
+    <% end %>
+  <% end %>
 <% end %>

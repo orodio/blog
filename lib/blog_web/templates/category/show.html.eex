@@ -1,7 +1,7 @@
-<h1>Category: <%= @category.label %></h1>
-<blockquote>Posts: nnn</blockquote>
-<%= for _post <- 0..5 do %>
-  <p class="post", data-date="2019-07-21">
-    <%= link "post.title", to: "https://google.com" %>
+<h1><%= @category.label %></h1>
+<blockquote>Posts: <%= length(@category.posts) %></blockquote>
+<%= for post <- @category.posts do %>
+  <p class="post", data-date="<%= display_date(post.inserted_at) %>">
+    <%= link post.title, to: Routes.post_path(@conn, :show, post) %>
   </p>
 <% end %>

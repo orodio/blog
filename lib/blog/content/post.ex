@@ -1,14 +1,14 @@
 defmodule Blog.Content.Post do
-  @moduledoc false
-
   use Ecto.Schema
   import Ecto.Changeset
+  alias Blog.Content.{Permalink, Category, Post, PostCategory}
 
-  @primary_key {:id, Blog.Content.Permalink, autogenerate: true}
+  @primary_key {:id, Permalink, autogenerate: true}
   schema "posts" do
     field :content, :string
     field :title, :string
     field :slug, :string
+    many_to_many :categories, Category, join_through: "post_categories"
 
     timestamps()
   end
@@ -36,7 +36,7 @@ defmodule Blog.Content.Post do
     |> String.replace(~r/[^\w-]+/u, "-")
   end
 
-  defimpl Phoenix.Param, for: Blog.Content.Post do
+  defimpl Phoenix.Param, for: Post do
     def to_param(%{slug: slug, id: id}) do
       "#{id}-#{slug}"
     end

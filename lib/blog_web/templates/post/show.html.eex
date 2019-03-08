@@ -1,3 +1,27 @@
 <h1><%= @post.title %></h1>
-<blockquote>Posted: <%= display_date(@post.inserted_at) %></blockquote>
+<blockquote>
+  Posted: <%= display_date(@post.inserted_at) %> 
+  <%= if length(@post.categories) >= 1 do %>
+    in <%= for category <- @post.categories do %>
+      <%= link category.label, to: Routes.category_path(@conn, :show, category) %>
+    <% end %>
+  <% end %>
+</blockquote>
+
 <%= markdown(@post.content) %>
+
+<div id="disqus_thread"></div>
+
+<script>
+var disqus_config = function () {
+  this.page.url = "<%= Routes.post_url(@conn, :show, @post) %>"; 
+  this.page.identifier = "<%= @post.id %>-post";
+};
+
+!(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://qvvg.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
